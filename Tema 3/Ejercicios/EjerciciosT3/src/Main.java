@@ -13,7 +13,8 @@ public class Main {
         //ejerc.ejercicio6();
         //ejerc.ejercicio7();
         //ejerc.ejercicio8();
-        ejerc.ejercicio9();
+        //ejerc.ejercicio9();
+        ejerc.ejercicio10();
 
 
 

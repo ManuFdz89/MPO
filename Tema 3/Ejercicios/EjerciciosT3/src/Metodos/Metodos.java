@@ -1,11 +1,10 @@
 package Metodos;
 import Enum.Moneda;
 import Enum.CategoriaPlato;
+import Enum.EstadoPedido;
 
-import java.util.Random;
 import java.util.Scanner;
-import java.util.TimerTask;
-
+import java.util.SortedMap;
 
 
 public class Metodos {
@@ -397,21 +396,63 @@ public class Metodos {
         System.out.println("Introduce tu altura en metros: ");
         double altura = teclado.nextDouble();
 
-        double imc = peso/(altura*altura);
+        double imc = peso / (altura * altura);
         String categoria = "";
 
         switch (imc){
-            case double t when (t<18.5) -> categoria = "Bajo peso";
-            case double t when (t>18.5 && t<25) -> categoria = "Normal";
-            case double t when (t>=25 && t<=29.9) -> categoria = "Sobrepeso";
-            case double t when (t>=30) -> categoria = "Obesidad";
+            // Caso 1: Hasta 18.5 (sin incluirlo)
+            case double t when (t < 18.5) -> categoria = "Bajo peso";
+
+            // CORRECCIÓN 1: Incluimos el 18.5 con >=
+            case double t when (t >= 18.5 && t < 25) -> categoria = "Normal";
+
+            // CORRECCIÓN 2: Usamos < 30 para atrapar también el 29.999...
+            case double t when (t >= 25 && t < 30) -> categoria = "Sobrepeso";
+
+            // Caso 4: De 30 en adelante
+            case double t when (t >= 30) -> categoria = "Obesidad";
+
             default -> {
-                System.out.println("Error");
+                System.out.println("Error en el cálculo");
                 return;
             }
         }
-        System.out.printf("Tu IMC es %.2f, clasificado %s",imc, categoria);
+        // Añadido %n para salto de línea estético
+        System.out.printf("Tu IMC es %.2f, clasificado como %s%n", imc, categoria);
     }
 
+    private EstadoPedido obtenerEstadoPedido(){
 
+        EstadoPedido[] ePedido = EstadoPedido.values();
+        int aleatorio = (int)(Math.random()*ePedido.length);
+
+        //System.out.println(ePedido[aleatorio]);
+        return ePedido[aleatorio];
+
+    }
+    public void ejercicio10(){
+        EstadoPedido estadoActual = obtenerEstadoPedido();
+
+        // Variable para guardar SOLO la parte que cambia
+        String siguientePaso = "";
+
+        // El switch solo se encarga de la lógica, no de imprimir
+        switch (estadoActual){
+            case PENDIENTE ->   siguientePaso = "el siguiente paso será Procesado";
+            case PROCESANDO ->  siguientePaso = "el siguiente paso será Enviado";
+            case ENVIADO ->     siguientePaso = "el siguiente paso será En tránsito";
+            case EN_TRANSITO -> siguientePaso = "el siguiente paso será Entregado";
+
+            // Estos dos estados son finales, no tienen siguiente paso
+            case ENTREGADO, CANCELADO -> siguientePaso = "Fin del proceso";
+        }
+
+        // UN SOLO PRINT AL FINAL
+        // Mucho más limpio y fácil de mantener
+        if (estadoActual == EstadoPedido.ENTREGADO || estadoActual == EstadoPedido.CANCELADO) {
+            System.out.printf("Estado actual: %s. (%s)%n", estadoActual, siguientePaso);
+        } else {
+            System.out.printf("El pedido se encuentra %s, %s.%n", estadoActual, siguientePaso);
+        }
+    }
 }
