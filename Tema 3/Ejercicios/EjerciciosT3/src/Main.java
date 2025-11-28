@@ -1,9 +1,9 @@
-import Metodos.Metodos;
+import Metodos.SwAvanzado;
 
 public class Main {
 
     public static void main(String[] args) {
-        Metodos ejerc = new Metodos();
+        SwAvanzado ejerc = new SwAvanzado();
 
         //ejerc.ejercicio1();
         //ejerc.ejercicio2();

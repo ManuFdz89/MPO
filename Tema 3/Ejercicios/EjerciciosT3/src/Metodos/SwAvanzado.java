@@ -4,10 +4,9 @@ import Enum.CategoriaPlato;
 import Enum.EstadoPedido;
 
 import java.util.Scanner;
-import java.util.SortedMap;
 
 
-public class Metodos {
+public class SwAvanzado {
 
     // Instanciamos el Scanner fuera del método para poder reutilizarlo si hiciera falta en otros ejercicios
     Scanner teclado = new Scanner(System.in);
