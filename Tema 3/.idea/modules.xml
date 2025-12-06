@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Ejercicios/Ejercicios.iml" filepath="$PROJECT_DIR$/Ejercicios/Ejercicios.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T3/EstructuraSwitch/EstructuraSwitch.iml" filepath="$PROJECT_DIR$/T3/EstructuraSwitch/EstructuraSwitch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T3/EstructurasOperaciones/EstructurasOperaciones.iml" filepath="$PROJECT_DIR$/T3/EstructurasOperaciones/EstructurasOperaciones.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T3/EstrucutraContinue/EstrucutraContinue.iml" filepath="$PROJECT_DIR$/T3/EstrucutraContinue/EstrucutraContinue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Tema 3.iml" filepath="$PROJECT_DIR$/.idea/Tema 3.iml" />
+    </modules>
+  </component>
+</project>
