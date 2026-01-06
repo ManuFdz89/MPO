@@ -33,7 +33,8 @@ public class Main {
                     int telefono = teclado.nextInt(); // Guardamos como Integer (posición 2)
                     System.out.print("Introduce el DNI: ");
                     String DNI = teclado.next(); // Guardamos como String (posición 3)
-                    agenda.agregarContacto(new Object[]{nombre,apellido,telefono,DNI});
+                    Contacto nuevo = new Contacto(nombre,apellido,telefono,DNI);
+                    agenda.agregarContacto(nuevo);
                 }
                 case 2 -> {
                     System.out.println("Dime el DNI a buscar: ");
